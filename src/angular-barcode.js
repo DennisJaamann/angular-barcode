@@ -29,13 +29,28 @@
             var value = scope.value;
             var type = angular.lowercase(scope.type);
 
-            console.log(element.barcode);
-            element.barcode(value, type, {
-                barWidth: parseInt(attrs.barWidth) || 2,
-                barHeight: parseInt(attrs.barHeight) || 45
-            }).css({
-                'margin': '0 auto'
-            });
+            var options = {
+                output: attrs.output || 'css',
+                bgColor: attrs.bgColor || '#FFF',
+                color: attrs.color || '#000',
+                barWidth: parseInt(attrs.barWidth) || 1,
+                barHeight: parseInt(attrs.barHeight) || 50,
+                moduleSize: parseInt(attrs.barHeight) || 5,
+                posX: parseInt(attrs.posX) || 0,
+                posY: parseInt(attrs.posY) || 0,
+                addQuietZone: attrs.addQuietZone || false
+            };
+
+            if (options.output === 'canvas') {
+                console.log("implement this");
+            }
+            else {
+                element.barcode(value, type, options)
+                    .css({
+                        'margin': '0 auto'
+                    });
+            }
+
 
         }
     }
