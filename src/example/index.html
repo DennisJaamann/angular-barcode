@@ -1,5 +1,6 @@
 <html>
 <head>
+    <title>Angular barcode directive example</title>
     <style>
         * {
             color:#7F7F7F;
@@ -35,9 +36,11 @@
         }
     </style>
 
-    <script type="text/javascript" src="/bower_components/barcode-jquery/sample/jquery-1.3.2.min.js"></script>
-    <script type="text/javascript" src="/bower_components/barcode-jquery/jquery-barcode.js"></script>
-    <script type="text/javascript">
+    <script type="text/javascript" src="../../bower_components/jQuery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../../bower_components/barcode-jquery/jquery-barcode.js"></script>
+    <script type="text/javascript" src="../../bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="../angular-barcode.js"></script>
+    <!--script type="text/javascript">
 
         function generateBarcode(){
             var value = $("#barcodeValue").val();
@@ -104,12 +107,13 @@
             generateBarcode();
         });
 
-    </script>
+    </script-->
+    <script type="text/javascript" src="app.js"></script>
 </head>
-<body>
+<body ng-app="example">
 <div id="generator">
-    Please fill in the code : <input type="text" id="barcodeValue" value="12345670">
-    <div id="config">
+    <barcode value="12345670" type="code128"></barcode>
+    <!--div id="config">
         <div class="config">
             <div class="title">Type</div>
             <input type="radio" name="btype" id="ean8" value="ean8" checked="checked"><label for="ean8">EAN 8</label><br />
@@ -152,16 +156,16 @@
             <input type="radio" id="svg" name="renderer" value="svg"><label for="svg">SVG (not usable in IE)</label><br />
             <input type="radio" id="canvas" name="renderer" value="canvas"><label for="canvas">Canvas (not usable in IE)</label><br />
         </div>
-    </div>
+    </div-->
 
-    <div id="submit">
+    <!--div id="submit">
         <input type="button" onclick="generateBarcode();" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generate the barcode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;">
-    </div>
+    </div-->
 
 </div>
 
-<div id="barcodeTarget" class="barcodeTarget"></div>
-<canvas id="canvasTarget" width="150" height="150"></canvas>
+<!--div id="barcodeTarget" class="barcodeTarget"></div>
+<canvas id="canvasTarget" width="150" height="150"></canvas-->
 
 </body>
 </html>
